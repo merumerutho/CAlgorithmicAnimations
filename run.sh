@@ -1,8 +1,8 @@
 #!/bin/bash
 gcc main.c -lm -o main
 echo "Generating pictures..."
-parallel ./main {} "$1" :::: <(seq 0 "$1")
 mkdir $HOME/Frames &> /dev/null;
+parallel ./main {} "$1" :::: <(seq 0 "$1")
 cd $HOME/Frames;
 echo "Creating video..."
 ffmpeg -i %01d.ppm -framerate 60 -pattern_type sequence -y out.mp4 &> /dev/null
