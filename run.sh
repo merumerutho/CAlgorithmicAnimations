@@ -32,14 +32,15 @@ fi
 gcc main.c -lm -o CAlgorithmicAnimations
 echo "Generating pictures..."
 
+mkdir 'Frames'
 if [ -n "$1" ]; then
 	parallel ./CAlgorithmicAnimations {} "$1" :::: <(seq 0 "$1")
 else
 	echo "N' of frames not supplied, i will use 240"
 	parallel ./CAlgorithmicAnimations {} 240 :::: <(seq 0 240)
 fi
-mkdir Frames &> /dev/null;
-cd Frames;
+
+cd 'Frames/'
 echo "Creating video..."
 ffmpeg -i %01d.ppm  -pattern_type sequence -r 60 -y out.mp4 &> /dev/null
 rm *.ppm >& /dev/null
