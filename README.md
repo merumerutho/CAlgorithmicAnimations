@@ -9,3 +9,5 @@ A rudimental and experimental C program to generate algorithmic animations.
 ```./run.sh TOTAL_FRAMES ```
 
 where TOTAL_FRAMES is the number of frames you want to render.
+
+You can find everything about this program in [this blog post](https://www.meru.cloud/2018/11/30/Experimental-algorithmic-art-in-C.html)
